@@ -16,6 +16,22 @@
 			jumlah_rumah: [{ developer: 1 }, { swadaya: null }]
 		}
 	];
+	let nama = '';
+	let lokasi = '';
+	let developer = null;
+	let swadaya = null;
+
+	function addSurvey() {
+		let survey = {
+			nama: nama,
+			lokasi: lokasi,
+			jumlah_rumah: [{ developer: developer }, { swadaya: swadaya }]
+		};
+		surveys = [...surveys, survey];
+
+		// reset the form
+		(nama = ''), (lokasi = ''), (developer = null), (swadaya = null);
+	}
 </script>
 
 <table>
@@ -26,7 +42,7 @@
 			</label>
 		</td>
 		<td>
-			<input id="nama" class="m-1 border-2" type="text" />
+			<input id="nama" class="m-1 border-2" type="text" bind:value={nama} />
 		</td>
 	</tr>
 	<tr>
@@ -36,7 +52,7 @@
 			</label>
 		</td>
 		<td>
-			<input id="lokasi" class="m-1 border-2" type="text" />
+			<input id="lokasi" class="m-1 border-2" type="text" bind:value={lokasi} />
 		</td>
 	</tr>
 	<tr>
@@ -46,7 +62,7 @@
 			</label>
 		</td>
 		<td>
-			<input id="developer" class="m-1 border-2" type="number" />
+			<input id="developer" class="m-1 border-2" type="number" bind:value={developer} />
 		</td>
 	</tr>
 	<tr>
@@ -56,12 +72,12 @@
 			</label>
 		</td>
 		<td>
-			<input id="swadaya" class="m-1 border-2" type="number" />
+			<input id="swadaya" class="m-1 border-2" type="number" bind:value={swadaya} />
 		</td>
 	</tr>
 	<tr>
 		<td colspan="2">
-			<button class="btn btn-full btn-blue">Submit</button>
+			<button class="btn btn-full btn-blue" on:click={addSurvey}>Submit</button>
 		</td>
 	</tr>
 </table>
