@@ -85,3 +85,18 @@
 		</tr>
 	{/each}
 </table>
+
+<style lang="postcss">
+	.btn {
+		@apply font-bold py-2 rounded;
+	}
+	.btn-full {
+		@apply w-full;
+	}
+	.btn-blue {
+		@apply bg-blue-500 text-white;
+	}
+	.btn-blue:hover {
+		@apply bg-blue-700;
+	}
+</style>
